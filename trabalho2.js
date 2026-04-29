@@ -72,12 +72,12 @@ const produtos = [
       ano_lancamento: 2026,
     },
     {
-      nome: "Realme Note 70",
+       nome: "Realme Note 70",
       preco: 1100.00, 
       estoque: 60,
-      empr_fabricante: "Realme",
-      modelo: "RMX3930",
-      ano_lancamento: 2026,
+       empr_fabricante: "Realme",
+       modelo: "RMX3930",
+       ano_lancamento: 2026,
     }
   ]
 
@@ -90,8 +90,18 @@ const produtos = [
   const produtosArquivo = require("./produtos.json")
   console.log(produtosArquivo)
 
+  console.log("LISTA DE PRODUTOS ORGANIZADA: \n")
   produtosArquivo.forEach((produto)=>{
-    console.log(produto.nome + 
-        " - Nome do produto: " + produtos.nome + 
-        " - Preço: " + produto.serie_fav)
+    console.log(produto.nome + ":\n" +
+        " - modelo: " + produto.modelo + "\n" +
+        " - Fabricante: " + produto.empr_fabricante + "\n" +
+        " - Lançado em: " + produto.ano_lancamento + "\n" +
+        " - Preço: R$" + produto.preco + "\n" +
+        " - Estoque: " + produto.estoque + " unidade(s) \n")
+    console.log("######################################## \n")
 })
+  console.log("################################################################# \n")
+
+      function AdicionaProduto(nome, preco, estoque, empr_fabricante, modelo, ano_lancamento){
+          
+      }
