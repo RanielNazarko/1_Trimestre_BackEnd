@@ -1,3 +1,4 @@
+// Cria uma lista que cada objeto tem mais de uma coisa
 const produtos = [
     {
       nome: "iPhone 17 Pro Max",
@@ -81,15 +82,19 @@ const produtos = [
     }
   ]
 
+  // Cria O JSON
   const produtosJSON = JSON.stringify(produtos)
   console.log(produtosJSON)
 
+  // Cria um arquivo JSON
   const fs = require("fs")
   fs.writeFileSync("produtos.json", produtosJSON)
 
+  //Le o arquivo JSON
   const produtosArquivo = require("./produtos.json")
   console.log(produtosArquivo)
 
+  // MOSTRAR OS DADOS DO ARQUIVO ORGANIZADAMENTE
   console.log("LISTA DE PRODUTOS ORGANIZADA: \n")
   produtosArquivo.forEach((produto)=>{
     console.log(produto.nome + ":\n" +
@@ -102,6 +107,51 @@ const produtos = [
 })
   console.log("################################################################# \n")
 
+  // Adiciona um novo Produto
       function AdicionaProduto(nome, preco, estoque, empr_fabricante, modelo, ano_lancamento){
           
+
+            const existe = produtosArquivo.some
+            produtos = produtos.nome == nome
+
+        if(existe == true){
+        console.log("O celular " + nome + " já estáva no estoque")
+            
+          }else{
+            produtos.push({
+                nome: nome,
+                preco: preco,
+                estoque: estoque,
+                empr_fabricante: empr_fabricante,
+                modelo: modelo,
+                ano_lancamento: ano_lancamento})
+                console.log("O celular " + nome + " foi adicionado ao estoque com sucesso")
+        }
       }
+
+      AdicionaProduto("Nokia 110 4G", 163, 37, "Nokia", "feature phone", 2023)
+
+
+
+
+
+
+
+
+
+
+
+      // filtra os produtos com preco a baixo de 
+const filtro = produtos.filter((produto)=> produto.preco =< 1500)
+console.log(filtro)
+
+
+// Alterar todos os produtos
+console.log("PRODUTOS COM DESCONTO DE 15%")
+const desconto = produtos.map((produto)=> return {...produto, preco: produto.preco * 0.85})
+console.log(desconto)
+
+
+// ENCONTRAR UM DETERMINADO PRODUTO
+const encontrar = produtos.find((produto)=> produto.marca == "Motorola")
+console.log(encontrar)
