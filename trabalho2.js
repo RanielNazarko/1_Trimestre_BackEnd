@@ -110,9 +110,8 @@ const produtos = [
   // Adiciona um novo Produto
       function AdicionaProduto(nome, preco, estoque, empr_fabricante, modelo, ano_lancamento){
           
-
             const existe = produtosArquivo.some
-            produtos = produtos.nome == nome
+            produtos.nome == nome
 
         if(existe == true){
         console.log("O celular " + nome + " já estáva no estoque")
@@ -131,27 +130,25 @@ const produtos = [
 
       AdicionaProduto("Nokia 110 4G", 163, 37, "Nokia", "feature phone", 2023)
 
+    function filtrar(filtrando){
+        console.log("PRODUTOS COM PREÇO IGUAL OU MENOR QUE " + filtrando)   
+        const filtro = produtos.filter((produto)=> produto.preco <= filtrando)
+        console.log(filtro)
+    }
+
+    filtrar(1500)
 
 
 
+    function AplicaDesconto(desc){
+        console.log("PRODUTOS COM DESCONTO DE " + (desc * -100 + 100) +  "% DE DESCONTO")
+        const desconto = produtos.map((produto)=> {return {...produto, valor: produto.valor * desc}})
+        console.log(desconto)
+      }
 
+    AplicaDesconto(0.80)
 
-
-
-
-
-
-      // filtra os produtos com preco a baixo de 
-const filtro = produtos.filter((produto)=> produto.preco =< 1500)
-console.log(filtro)
-
-
-// Alterar todos os produtos
-console.log("PRODUTOS COM DESCONTO DE 15%")
-const desconto = produtos.map((produto)=> return {...produto, preco: produto.preco * 0.85})
-console.log(desconto)
-
-
-// ENCONTRAR UM DETERMINADO PRODUTO
-const encontrar = produtos.find((produto)=> produto.marca == "Motorola")
-console.log(encontrar)
+    function Encontra(){
+        const encontrar = produtos.find((produto)=> produto.marca == "Motorola")
+        console.log(encontrar)
+    }
