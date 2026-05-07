@@ -68,7 +68,7 @@ const produtos = [
       nome: "Poco X7 Pro",
       preco: 2400.00,
       estoque: 22,
-      empr_fabricante: "Xiaomi (Poco)",
+      empr_fabricante: "Xiaomi",
       modelo: "25018PPC",
       ano_lancamento: 2026,
     },
@@ -95,7 +95,10 @@ const produtos = [
   console.log(produtosArquivo)
 
   // MOSTRAR OS DADOS DO ARQUIVO ORGANIZADAMENTE
-  console.log("LISTA DE PRODUTOS ORGANIZADA: \n")
+   console.log("\n _________________________________________________________________ \n")
+  console.log("\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+  console.log("&&&&&&&&&& LISTA DE PRODUTOS ORGANIZADA: &&&&&&&&&&")
+  console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n")
   produtosArquivo.forEach((produto)=>{
     console.log(produto.nome + ":\n" +
         " - modelo: " + produto.modelo + "\n" +
@@ -105,7 +108,7 @@ const produtos = [
         " - Estoque: " + produto.estoque + " unidade(s) \n")
     console.log("######################################## \n")
 })
-  console.log("################################################################# \n")
+  console.log("_________________________________________________________________ \n")
 
   // Adiciona um novo Produto
       function AdicionaProduto(nome, preco, estoque, empr_fabricante, modelo, ano_lancamento){
@@ -130,25 +133,36 @@ const produtos = [
 
       AdicionaProduto("Nokia 110 4G", 163, 37, "Nokia", "feature phone", 2023)
 
+      console.log("\n _________________________________________________________________ \n")
+
     function filtrar(filtrando){
-        console.log("PRODUTOS COM PREÇO IGUAL OU MENOR QUE " + filtrando)   
+        console.log("\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        console.log("&&&&&&&&&& PRODUTOS COM PREÇO IGUAL OU MENOR QUE " + filtrando + " &&&&&&&&&&")
+        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n ")  
         const filtro = produtos.filter((produto)=> produto.preco <= filtrando)
         console.log(filtro)
     }
-
     filtrar(1500)
 
-
-
     function AplicaDesconto(desc){
-        console.log("PRODUTOS COM DESCONTO DE " + (desc * -100 + 100) +  "% DE DESCONTO")
-        const desconto = produtos.map((produto)=> {return {...produto, valor: produto.valor * desc}})
+         console.log("\n _________________________________________________________________ \n")
+        console.log("\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        console.log("&&&&&&&&&& PRODUTOS COM DESCONTO DE " + (desc * -100 + 100) +  "% DE DESCONTO &&&&&&&&&")
+        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n")
+        const desconto = produtos.map((produto)=> {return {...produto, preco: produto.preco * desc}})
         console.log(desconto)
       }
 
     AplicaDesconto(0.80)
 
-    function Encontra(){
-        const encontrar = produtos.find((produto)=> produto.marca == "Motorola")
-        console.log(encontrar)
-    }
+    function Encontra(marca){
+        console.log("\n _________________________________________________________________\n")
+        console.log("\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        console.log("&&&&&&&&&& PRODUTOS DA MARCA: " + marca + " &&&&&&&&&&")
+        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n")
+        const encontrar = produtos.find((produto)=> produto.empr_fabricante == marca)
+            console.log(encontrar)
+      }
+
+    Encontra("Google")
+        console.log("\n _________________________________________________________________")
