@@ -95,6 +95,7 @@ const produtos = [
   console.log(produtosArquivo)
 
   // MOSTRAR OS DADOS DO ARQUIVO ORGANIZADAMENTE
+  function MostrarProdutos(){
    console.log("\n _________________________________________________________________ \n")
   console.log("\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
   console.log("&&&&&&&&&& LISTA DE PRODUTOS ORGANIZADA: &&&&&&&&&&")
@@ -109,6 +110,7 @@ const produtos = [
     console.log("######################################## \n")
 })
   console.log("_________________________________________________________________ \n")
+}
 
   // Adiciona um novo Produto
       function AdicionaProduto(nome, preco, estoque, empr_fabricante, modelo, ano_lancamento){
@@ -131,8 +133,6 @@ const produtos = [
         }
       }
 
-      AdicionaProduto("Nokia 110 4G", 163, 37, "Nokia", "feature phone", 2023)
-
       console.log("\n _________________________________________________________________ \n")
 
     function filtrar(filtrando){
@@ -142,8 +142,7 @@ const produtos = [
         const filtro = produtos.filter((produto)=> produto.preco <= filtrando)
         console.log(filtro)
     }
-    filtrar(1500)
-
+    
     function AplicaDesconto(desc){
          console.log("\n _________________________________________________________________ \n")
         console.log("\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
@@ -153,8 +152,6 @@ const produtos = [
         console.log(desconto)
       }
 
-    AplicaDesconto(0.80)
-
     function Encontra(marca){
         console.log("\n _________________________________________________________________\n")
         console.log("\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
@@ -162,7 +159,11 @@ const produtos = [
         console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n")
         const encontrar = produtos.find((produto)=> produto.empr_fabricante == marca)
             console.log(encontrar)
+            console.log("\n _________________________________________________________________")
       }
 
-    Encontra("Google")
-        console.log("\n _________________________________________________________________")
+MostrarProdutos()
+AdicionaProduto("Nokia 110 4G", 163, 37, "Nokia", "feature phone", 2023)
+filtrar(1500)
+AplicaDesconto(0.80)
+Encontra("Google")
